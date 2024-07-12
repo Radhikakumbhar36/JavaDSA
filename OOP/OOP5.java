@@ -1,4 +1,4 @@
-package OOP;
+package  OOP;
 public class OOP5 {
     public static void main(String[] args) {
         
@@ -21,6 +21,10 @@ public class OOP5 {
 
         Media car2=new Car();
         car2.stop();
+
+
+        B obj =new B();
+        System.out.println(obj.isOdd(2));
 
     }
 }
@@ -132,3 +136,18 @@ class Car implements Brake, Engine,Media {
 // brake     Engine      media
 //     \       / 
 //         Car
+
+
+//Nested Interface
+class A {
+    interface NestedInterface {
+        boolean isOdd(int num); // Method signature
+    }
+}
+
+class B implements A.NestedInterface {
+    @Override
+    public boolean isOdd(int num) { // Correctly matches the method signature
+        return (num & 1) == 1; // Returns true if num is odd
+    }
+}
